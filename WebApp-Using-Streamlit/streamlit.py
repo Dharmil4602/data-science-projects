@@ -40,3 +40,19 @@ if file_upload is not None:
             st.pyplot()
     else:
         st.success("No Null Values")
+
+# Handle duplicate values in dataset
+if file_upload is not None:
+    test_duplicates = data.duplicated().values.any()
+    if test_duplicates == True:
+        st.warning("Duplicate Values Found")
+        dup = st.selectbox("Select Option",("Select One", "Yes","No"))
+        if dup == "Yes":
+            data = data.drop_duplicates()
+            st.text("Duplicates Dropped")
+        elif dup == "No":
+            st.text("Duplicates Kept")
+
+# Adding by:
+if st.checkbox("Created By"):
+    st.success("Dharmil Shah")
