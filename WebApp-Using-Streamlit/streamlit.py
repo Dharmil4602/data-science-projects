@@ -13,7 +13,7 @@ if file_upload is not None:
 
 # Showing the dataset
 # First check that user has uploaded the dataset
-if file_upload is not None:
+if file_upload is not None: # Check that user has uploaded the dataset
     if st.checkbox("Preview Dataset"):
         if st.button("Head"):
             st.write(data.head())
