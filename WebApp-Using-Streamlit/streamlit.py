@@ -12,3 +12,10 @@ if file_upload is not None:
     data = pd.read_csv(file_upload)
 
 # Showing the dataset
+# First check that user has uploaded the dataset
+if file_upload is not None:
+    if st.checkbox("Preview Dataset"):
+        if st.button("Head"):
+            st.write(data.head())
+        if st.button("Tail"):
+            st.write(data.tail())
