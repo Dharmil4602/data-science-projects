@@ -24,3 +24,9 @@ if file_upload is not None: # Check that user has uploaded the dataset
 if file_upload is not None:
     if st.checkbox("Show Data Types"):
         st.write(data.astype(str))
+
+# Finding shape of the data set
+if file_upload is not None:
+    if st.checkbox("Show Shape"):
+        st.write("Number Of Rows:",data.shape[0])
+        st.write("Number Of Columns:",data.shape[1])
