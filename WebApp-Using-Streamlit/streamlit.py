@@ -30,3 +30,13 @@ if file_upload is not None:
     if st.checkbox("Show Shape"):
         st.write("Number Of Rows:",data.shape[0])
         st.write("Number Of Columns:",data.shape[1])
+
+# Display null values
+if file_upload is not None:
+    test_null = data.isnull().values.any()
+    if test_null == True:
+        if st.checkbox("Show Null Values"):
+            sns.heatmap(data.isnull())
+            st.pyplot()
+    else:
+        st.success("No Null Values")
