@@ -19,3 +19,8 @@ if file_upload is not None: # Check that user has uploaded the dataset
             st.write(data.head())
         if st.button("Tail"):
             st.write(data.tail())
+
+# Showing Data Types
+if file_upload is not None:
+    if st.checkbox("Show Data Types"):
+        st.write(data.astype(str))
