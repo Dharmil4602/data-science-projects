@@ -1,5 +1,8 @@
 import streamlit as st
 import pandas as pd
+import pydeck as pdk
+import numpy as np
+
 st.title("Motor Vehicle Collisions in New York City")
 st.markdown("This application is a Streamlit dashboard that can be used to analyze motor vehicle collisions in NYC 🗽💥🚗")
 
@@ -24,6 +27,18 @@ st.header("How many collisions occur during a given time of day?")
 hour = st.slider("Hour to look at", 0, 23)
 data = data[data['date/time'].dt.hour == hour]
 st.markdown("Looking for the data between %i:00 and %i:00" % (hour, (hour + 1) % 24))
+
+midpoint = (np.average(data['latitude']), np.average(data['longitude']))
+st.write(pdk.Deck(
+    map_style = "mapbox://styles/mapbox/light-v9",
+    initial_view_state={
+        "latitude": midpoint[0],
+        "longitude": midpoint[1],
+        "zoom": 11,
+        "pitch": 50
+    },
+)
+)
 
 
 
