@@ -13,10 +13,16 @@ def load_data(nrows):
     return data
 
 data = load_data(100000)
+
+# Showing the data with different options to filter
 st.header("Where are the most injured people in NYC?")
 injured_people = st.slider("Number of persons injured in vehicle collisions", 0, 19)
 st.map(data.query('injured_persons >= @injured_people')[['latitude', 'longitude']].dropna(how="any"))
 
+# Here on changing the hour, the data will be updated 
+st.header("How many collisions occur during a given time of day?")
+hour = st.slider("Hour to look at", 0, 23)
+data = data[data['date/time'].dt.hour == hour]
 
 
 
