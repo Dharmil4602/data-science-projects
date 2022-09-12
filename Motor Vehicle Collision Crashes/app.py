@@ -44,7 +44,7 @@ st.write(pdk.Deck(
         data=data[['date/time', 'latitude', 'longitude']],
         get_position=['longitude', 'latitude'],
         radius=100,
-        extruded=True,
+        extruded=True, # Extruded will give a 3D effect, like in the shape of the pillars, If it is set to false(default) then it will be in the shape of hexagon
         pickable=True,
         elevation_scale=4,
         elevation_range=[0, 1000],
