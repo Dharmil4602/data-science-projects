@@ -1,7 +1,7 @@
 from select import select
 import streamlit as st
 import pandas as pd
-import pydeck as pdk
+import pydeck as pdkgit 
 import numpy as np
 import plotly.express as px
 
